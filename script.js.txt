@@ -1,0 +1,35 @@
+// Typing Effect
+const text = "Creative Web Developer";
+let i = 0;
+function typing() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 100);
+    }
+}
+typing();
+
+// Contact Form Validation
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    let formMessage = document.getElementById("formMessage");
+
+    if(name === "" || email === "" || message === ""){
+        formMessage.style.color = "red";
+        formMessage.innerText = "Please fill all fields!";
+    } else {
+        formMessage.style.color = "lightgreen";
+        formMessage.innerText = "Message sent successfully!";
+        this.reset();
+    }
+});
+
+// Scroll To Top
+function scrollToTop(){
+    window.scrollTo({top:0, behavior:"smooth"});
+}
